@@ -27,5 +27,5 @@ func SumOfMultiples(maximum int, numbers ...int) int {
 }
 
 func main() {
-	fmt.Printf("%d", SumOfMultiples(1000, 3, 5, 7))
+	fmt.Printf("%d", SumOfMultiples(1000, 3, 5))
 }
