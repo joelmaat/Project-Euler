@@ -1,7 +1,6 @@
 package main
 
 import "fmt"
-import "math"
 
 /*
 Even Fibonacci numbers
@@ -19,13 +18,10 @@ http://projecteuler.net/problem=2
 
 func FibonacciSum(maximum int) int {
 	total := 0
-	multiplier := (math.Sqrt(5) + 1) / 2
-	value := 1
-	for value < maximum {
-		if value&1 == 0 {
-			total += value
+	for previous, current := 1, 1; current < maximum; previous, current = current, current+previous {
+		if current&1 == 0 {
+			total += current
 		}
-		value = int(float64(value) * multiplier + 0.5)
 	}
 	return total
 }

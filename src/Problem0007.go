@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"math/big"
-)
+import "fmt"
 
 /*
 10001st prime
@@ -15,23 +12,32 @@ What is the 10 001st prime number?
 http://projecteuler.net/problem=7
 */
 
-func IsPrime(number int) bool {
-	return big.NewInt(int64(number)).ProbablyPrime(4)
+func IsPrime(number uint64) bool {
+	if number == 1 || number&1 == 0 {
+		return number == 2
+	}
+	var divisor uint64 = 3
+	for divisor*divisor <= number {
+		if number%divisor == 0 {
+			return false
+		}
+		divisor += 2
+	}
+	return true
 }
 
-func NthPrimeNumber(n uint64) int {
-	cache, digits := []int{1, 2, 3, 5, 7}, []int{1, 3, 7, 9}
-	total, prime, digits_length := uint64(len(cache) - 1), 0, len(digits)
+func NthPrimeNumber(n uint64) uint64 {
+	cache, digits := []uint64{1, 2, 3, 5, 7}, []uint64{1, 3, 7, 9}
+	var total, prime, length, base uint64 = uint64(len(cache) - 1), 0, uint64(len(digits)), 10
 	if n <= total {
 		return cache[n]
 	}
-	for base, next := 10, 0; total < n; next++ {
-		if next >= digits_length {
-			next, base = 0, base+10
+	for index := uint64(0); total < n; index++ {
+		if index >= length {
+			index, base = 0, base+10
 		}
-		candidate := base + digits[next]
-		if IsPrime(candidate) {
-			prime = candidate
+		prime = base+digits[index]
+		if IsPrime(prime) {
 			total++
 		}
 	}

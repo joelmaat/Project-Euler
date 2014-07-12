@@ -34,7 +34,7 @@ product?
 http://projecteuler.net/problem=8
 */
 
-func LargestProduct(number string, consecutive uint) int {
+func LargestProduct(number string, consecutive uint64) int {
 	length, largest := len(number), 0
 	if length < int(consecutive) {
 		return largest
@@ -48,6 +48,7 @@ func LargestProduct(number string, consecutive uint) int {
 		partial *= digit
 		if counted >= int(consecutive) {
 			partial /= int(number[i - counted] - '0')
+			counted = int(consecutive)
 		} else {
 			counted++
 		}
@@ -79,5 +80,5 @@ func main() {
 			"84580156166097919133875499200524063689912560717606" +
 			"05886116467109405077541002256983155200055935729725" +
 			"71636269561882670428252483600823257530420752963450"
-	fmt.Printf("%d", LargestProduct(number, uint(13)))
+	fmt.Printf("%d", LargestProduct(number, uint64(13)))
 }

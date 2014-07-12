@@ -27,8 +27,7 @@ http://projecteuler.net/problem=6
 func SeriesSum(largest *big.Int) *big.Int {
 	// largest * (largest + 1) / 2
 	sum := big.NewInt(1)
-	sum.Add(largest, sum).Mul(sum, largest).Div(sum, big.NewInt(2))
-	return sum
+	return sum.Add(largest, sum).Mul(sum, largest).Div(sum, big.NewInt(2))
 }
 
 func SumOfSquares(largest *big.Int) *big.Int {
