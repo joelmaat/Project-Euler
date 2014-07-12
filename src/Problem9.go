@@ -1,8 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"math"
-	"fmt")
+)
 
 /*
 Special Pythagorean triplet
@@ -19,7 +20,6 @@ Find the product abc.
 http://projecteuler.net/problem=9
 */
 
-
 func SpecialPythagoreanTriplet(sum uint64) uint64 {
 	for limit, b := (sum + 1) / 2, sum + 1 - uint64(math.Ceil(math.Sqrt(float64(sum * sum) / 2.0))); b < limit; b++ {
 		a := sum * (sum - 2 * b) / (2 * (sum - b))
@@ -34,4 +34,3 @@ func SpecialPythagoreanTriplet(sum uint64) uint64 {
 func main() {
 	fmt.Printf("%d", SpecialPythagoreanTriplet(uint64(1000)))
 }
-

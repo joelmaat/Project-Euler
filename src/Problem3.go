@@ -21,7 +21,7 @@ func IsPrime(number uint64) bool {
 func NextPrime(minimum, maximum uint64) uint64 {
 	if minimum == 2 {
 		return uint64(math.Min(2, float64(maximum)))
-	} else if (minimum == 4 || minimum == 5) {
+	} else if minimum == 4 || minimum == 5 {
 		return uint64(math.Min(5, float64(maximum)))
 	}
 	digits := []uint64{1, 3, 7, 9}

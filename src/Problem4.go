@@ -1,9 +1,9 @@
 package main
 
 import (
-	"math/big"
 	"bytes"
 	"fmt"
+	"math/big"
 	"runtime"
 )
 

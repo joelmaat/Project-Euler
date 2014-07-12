@@ -14,8 +14,10 @@ http://projecteuler.net/problem=10
 
 func IsPrime(number uint64) bool {
 	switch number {
-	case 1: return false
-	case 2, 3, 5, 7: return true
+	case 1:
+		return false
+	case 2, 3, 5, 7:
+		return true
 	}
 	if number == 1 || number&1 == 0 {
 		return false
@@ -51,4 +53,3 @@ func SummationOfPrimes(limit uint64) uint64 {
 func main() {
 	fmt.Printf("%d", SummationOfPrimes(uint64(2000000)))
 }
-

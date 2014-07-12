@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"math/big"
-	"time"
 	"reflect"
 	"runtime"
+	"time"
 )
 
 type SquareRooted struct {

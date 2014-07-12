@@ -67,4 +67,3 @@ func main() {
 		1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48}
 	fmt.Printf("%d", LargestProduct(grid, uint64(math.Sqrt(float64(len(grid)))), uint64(4)))
 }
-
